@@ -4,7 +4,7 @@ import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
-  activeNav?: "posts" | "tags" | "about" | "search";
+  activeNav?: "posts" | "tags" | "about" | "search" | "projects" | "talks";
 }
 
 const { activeNav } = Astro.props;
@@ -61,13 +61,21 @@ const { activeNav } = Astro.props;
             </a>
           </li>
           <li>
-            <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
-              Tags
+            <a href="/about/" class={activeNav === "about" ? "active" : ""}>
+              About
             </a>
           </li>
           <li>
-            <a href="/about/" class={activeNav === "about" ? "active" : ""}>
-              About
+            <a
+              href="/projects/"
+              class={activeNav === "projects" ? "active" : ""}
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="/talks/" class={activeNav === "talks" ? "active" : ""}>
+              Talks
             </a>
           </li>
           <li>
@@ -93,6 +101,7 @@ const { activeNav } = Astro.props;
             SITE.lightAndDarkMode && (
               <li>
                 <button
+                  onclick="toggleTheme()"
                   id="theme-btn"
                   class="focus-outline"
                   title="Toggles light & dark"
